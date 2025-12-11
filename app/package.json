@@ -1,0 +1,6 @@
+{
+    "name": "slides-by-vincent",
+    "scripts": {
+        "start": "node main.js"
+    }
+}
