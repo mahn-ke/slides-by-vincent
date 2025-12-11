@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>Service Automation</title>
+
+        <link rel="stylesheet" href="dist/reset.css">
+        <link rel="stylesheet" href="dist/reveal.css">
+        <link rel="stylesheet" href="dist/theme/black.css">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="plugin/highlight/monokai.css">
+        <style>
+            a {
+                color: #FF7F00 !important;
+            }
+            section {
+                background: rgb(42 43 45) rgb(22, 24, 28) !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <section>
+                    <h1>👀<h1>
+                        <aside class="notes">
+                            Is this thing on?
+                        </aside>
+                    </section>
+                    <section>
+                    <h1>Hello!<h1>
+                        <aside class="notes">
+                            I don't know how you got into development,<br />
+                            <b>**CLICK**</b>
+                        </aside>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>It all starts with a problem...</h1>
+  <aside class="notes">
+- I don't know how you got into development,<br />
+- It all starts with a problem...<br />
+- I was 6 and liked games; but without Internet<br />
+- Remember PC magazines? <b>**CLICK**</b>
+  </aside>
+                    </section>
+                    <section>
+                        <img src="assets/magazines.png">
+  <aside class="notes">
+- They had demos. <b>**CLICK**</b>
+  </aside>
+                    </section>
+                    <section>
+                        <img style="height: 30vh" src="assets/0_screenfun.png">
+  <aside class="notes">
+- And I had parents with no issues letting me stay indoors way too long <b>**CLICK**</b>
+  </aside>
+  </aside>
+                    </section>
+                    <section>
+                        <img src="assets/1_problem.png">
+<aside class="notes">
+- 20 years later, I made games and now software for a living
+<b>**CLICK**</b>
+</aside>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>It all starts with a problem...</h1>
+<aside class="notes">
+- It all starts with a problem...<br />
+<b>**RAISE HAND**</b>
+- Who here uses tracking blockers?<br />
+- Who here uses ad blockers?
+- As with anyone in my generation, <b>**CLICK**</b>
+</aside>
+                    </section>
+                    <section>
+                        <img src="assets/2_youtube.png">
+<aside class="notes">
+- I have a healthy relationship with YouTube consumption<br />
+- And remember Adblockers? <b>**CLICK**</b>
+</aside>
+                    </section>
+                    <section>
+                        <img src="assets/3_adblock.png">
+<aside class="notes">
+- Yeah, YouTube doesn't like those<br />
+- They also know how to internet and this thing locks you out for good. For three weeks.<br />
+- What's my main email provider again? <b>**CLICK**</b>
+</aside>
+                    </section>
+                    <section>
+                        <img src="assets/4_mail.png">
+<aside class="notes">
+- Oh right<br />
+- fun when you think about communicating with people with power of attourney/health related issues/government<br />
+- That's why I enjoy being here.
+</aside>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>That's why I like this.<br />You offer solutions.</h1>
+<aside class="notes">
+- learned things already<br />
+- you will see in presentation<br />
+- keep being awesome<br />
+- same thing at work; migrated from on-prem to Azure... now back?
+- Digital governance/sovereignity (Datenhoheit/Bestimmung über die Daten)<br />
+- Luckily there's abstract models we can use to solve this problem: <b>**CLICK**</b>
+</aside>
+                    </section>
+                    <section>
+                        <img src="assets/gitlab.png">
+<aside class="notes">
+- GitLab has this "DevOps definition: [gitlab]"<br />
+- Let's start at plan, go to monitor"<br />
+- I love tinkering, but sometimes things should just work; automatically<br />
+- Which is super interesting <b>**CLICK**</b>
+</aside>
+                    </section>
+                    <section>
+                        <h1>That's great.<br />If that's my job.</h1>
+                        <aside class="notes">
+If I get something from doing it.<br />
+- but now I'm doing it at home too<br />
+- and here I'm "eating your own dogfood"<br />
+- BUILDING things in a fun way is one thing<br />
+- USING things in a fun way is another<br />
+Unless I'm doing my taxes or wanna check my next doctors appointment<br />
+- so, if you'd like, I'd like to offer...<b>**CLICK**</b>
+                        </aside>
+                    </section>
+                </section>
+                <section data-background="hsl(26deg 76% 7%)">
+                    <h1 style="width: 100%;margin-top: -1em"><span style="font-size: 0.3em; position: relative; bottom: -1em;">(a pragmatic guide to)</span><br/>Service automation:<br />Maintenance at scale</h1>
+<aside class="notes">
+DON'T CLICK AWAY, READ FIRST<br />
+I have fun playing big companies against themselves:<br />
+...one’s own medicine is always the hardest to swallow.<b>**CLICK**</b>
+</aside>
+                </section>
+                <section>
+                    <h2>Standing on the shoulders of giants</h2>
+                    <section><aside class="notes">
+Google SRE book: it's free and great:<br />
+what is "failing too often", how to do "on call", how to monitor microservices<br /><br />
+I sit between "developers" and "operators"<br />
+and both people repeatedly tell me they want me<br />
+there's a chapter on defining what toil is "mühsahl"<br />
+and how to reduce it<br />
+read slide in german<br />
+<b>**CLICK**</b>
+</aside>
+                        <div style="display: flex; justify-content: space-around; align-items: center;">
+                            <img src="assets/sre.png" style="height: 40vh;" />
+                            <div style="width: 50vw;padding: 1em;">
+                                <p>
+                                    <a href="https://sre.google/sre-book/eliminating-toil">Reducing toil (SRE Book)</a>
+                                </p>
+                                <blockquote style="text-align: justify; width: 100%;">
+                                    If a human operator needs to touch your system during normal operations, you have a bug. The definition of normal changes as your systems grow.<br>
+                                    <small>— Carla Geisser, Google SRE</small>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </section>
+                    <section><aside class="notes">
+making games has a similar approach<br />
+video for those that don't want to read<br />
+tl;dr: fail often, fail fast. don't be afraid to fail<br />
+<b>**CLICK**</b>
+</aside>
+                        <img src="assets/extracredits.jpg" style="height: 50vh;" /><br />
+                        <a href="https://www.youtube.com/watch?v=rDjrOaoHz9s">Fail Faster (via Extra Credits)</a>
+                    </section>
+                    <section>
+                        <div style="display: flex; justify-content: space-around; align-items: center; margin-top: 1.5em">
+                            <div style="width: 40vw;">
+                                <img src="assets/ibm.png" />
+                                <a href="https://www.youtube.com/watch?v=rDjrOaoHz9s">Shift-left testing, defined<br />(via ibm.com)</a>
+                            </div>
+                            <div style="width: 40vw;">
+                                <img src="assets/shift-left.png" />
+                                <a href="https://www.youtube.com/watch?v=rDjrOaoHz9s">What is shift left?<br />(via GitHub.com)</a>
+                            </div>
+                        </div>
+                        <aside class="notes">
+Software calls it "shifting left"<br />
+- Testing earlier in the development cycle<br />
+Questionaire BEFORE YOU CLICK AWAY:
+<ul>
+    <li>Who here writes software?</li>
+    <li>Who has heard of Infrastructure-as-code?</li>
+    <li>If we imagine, that I either need to plug in a server or go to Hetzner and buy one in my browser, code does this for me</li>
+    <li>Who has written infrastructure-as-code?</li>
+    <li>Who has used Terraform?</li>
+</ul>
+- Who has used NixOS?
+
+Nice, so... <b>**CLICK**</b><br />
+                        </aside>
+                    </section>
+                </section>
+                <section>
+                    <aside class="notes">
+<b>READ SLIDES</b><br />
+<b>**CLICK**</b>
+                    </aside>
+                    <h2>What's the plan?</h2>
+                    <div style="font-size: 1em; display: flex; justify-content: space-between; align-items: center; gap: 2em;">
+                        <div style="width: 50%;">
+                            <ul class="toc">
+                                <li>about:
+                                    <ul>
+                                        <li>Docker</li>
+                                        <li>Git / GitHub / GitHub Actions</li>
+                                        <li>Renovate</li>
+                                        <li>Terraform</li>
+                                    </ul><br/>
+                                <li>Let's...
+                                    <ul>
+                                        <li>look at OSS Google Photos</li>
+                                        <li>deploy this presentation</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul style="width: 40%;" class="toc">
+                            <li>Actively used alternatives:
+                                <ul>
+                                    <li>Mobile apps</li>
+                                    <li>Web apps</li>
+                                    <li>Web services</li>
+                                </ul><br /><br /><br />
+                            </li>
+                            <li style="opacity: 0.7;font-style: italic;">A few words on Nix(OS)</li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <h2>about: docker</h2>
+                    <section>
+<aside class="notes">
+    <ul>
+        <li>Effectively a separate PC you reconstruct from a recipe</li>
+        <li>One lie: It's not a separate PC, but makes the mental model easy</li>
+        <li><b>**CLICK**</b></li>
+        <li>here's what this recipe looks like</li>
+        <li><b>READ SLIDES</b></li>
+        <li>if I now run this command</li>
+        <li><b>**CLICK**</b></li>
+        <li> The first command is the left part of the devops loop; stops at CMD</li>
+        <li><b>**CLICK**</b></li>
+        <li> The second comand is the right part of the devops loop</li>
+
+        <li><b>Only for one app</b></li>
+        <li>We probably need more things like a database, or a cache and for that <b>**CLICK**</b></li>
+    </ul>
+</aside>
+<div  class="fragment">
+                        A file named <pre style="display: inline;">Dockerfile</pre>
+                        <pre><code data-trim data-noescape>
+                        FROM node:25-alpine
+
+                        WORKDIR /app
+                        COPY ./ /app
+
+                        RUN npm ci
+
+                        CMD ["npm", "run", "start"]
+                        </code></pre>
+                        </div>
+                        <div class="fragment">Followed by...
+                            <pre><code data-trim data-noescape class="language-crystal">
+                            $ docker build -t my-app .
+                            </code></pre>
+                        </div>
+                        <pre class="fragment"><code data-trim data-noescape class="language-crystal">
+                        $ docker run -p 3000:3000 my-app
+                        </code></pre>
+                    </section>
+                    <section>
+<aside class="notes">
+    <ul>
+        <li>But what if we need more than one thing?</li>
+        <li>Like a database?</li>
+        <li>Or a cache?</li>
+        <li>We can use docker-compose for that</li>
+        <li><b>READ SLIDES</b></li>
+        <li><b>**CLICK**</b></li>
+    </ul>
+</aside>
+<br/>
+                        A file named <pre style="display: inline;">docker-compose.yml</pre>
+                        <pre style="height: 45vh;margin-bottom:1.5em;"><code style="height: 100%;" data-trim data-noescape class="language-yml">
+services:
+  db:
+    image: postgres:17.7-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=${TTRSS_DB_USER}
+      - POSTGRES_PASSWORD=${TTRSS_DB_PASS}
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  app:
+    image: cthulhoo/ttrss-fpm-pgsql-static:latest
+    restart: unless-stopped
+    volumes:
+      - app:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - TTRSS_DB_USER=${TTRSS_DB_USER}
+      - TTRSS_DB_PASS=${TTRSS_DB_PASS}
+
+volumes:
+  db:
+  app:
+                        </code></pre>
+                        Followed by...
+                        <pre><code data-trim data-noescape class="language-crystal">
+                        $ docker-compose up
+                        </code></pre>
+                    </section>
+                    <section>
+                        <aside class="notes">
+                            I set up my email server 9 months ago and need to restart it<br />
+                            Docker knows how and what it needs<br />
+                            <b>**CLICK**</b>
+                        </aside>
+                        <h1>No more<br />"how do I start<br/>this again?"</h1>
+                    </section>
+                </section>
+                <section>
+                    <aside class="notes">
+Not gonna explain much, because most of you know git already<br />
+We got source code in a way where we can retrieve older versions cleanly<br />
+<b>**CLICK**</b>
+</aside>
+                    <h2>about: git</h2>
+                    <section>
+                        <aside class="notes">
+                            <ul>
+                                <li>Not gonna go into detail, but needed for the mental model</li>
+                                <li>A stack of changes in a directory and its files</li>
+                                <li>Can branch and go back reliably</li>
+                                <li><b>**CLICK**</b></li>
+                            </ul>
+                        </aside>
+                        <h1>
+                            Versionized code repositories
+                        </h1>
+                    </section>
+                </section>
+                <section>
+                    <h2>about: GitHub</h2>
+                    GitHub: One (of many) providers to offer storing these
+                    <img src="assets/github.png" />
+                    <aside class="notes">
+This code we can push somewhere, like GitHub<br />
+They hold onto this, when multiple users work it and act as a single-source of truth<br />
+However they also offer<br />
+<b>**CLICK**</b>
+</aside>
+                </section>
+                <section>
+                    <h2>about: GitHub Actions</h2>
+                    <section><br /><br />
+                    <aside class="notes">
+Free computers! In different shapes and forms or we can bring our own<br />
+Forgejo does that too; we just have one that gets reset after each use<br />
+Moving forward I will use GitHub because it's free*<br />
+You're the product, but it makes it harder to follow otherwise; next project will be moving to Forgejo<br />
+These can do whatever we want!<br /><b>**CLICK**</b>
+</aside>
+                        Free* computers <br />
+                        <img src="assets/github_actions.png" />
+                    </section>
+                    <section>
+                    <aside class="notes">
+One example would be building our code, whenever GitHub receives it</b><br />
+<b>EXPLAIN CODE</b><br />
+<b>SAY YOU CAN MAKE THIS BLOCKING FOR CHANGES</b><br />
+<b>**CLICK**</b>
+</aside>
+                        A file named <pre style="display: inline;">/.github/workflows/build.yml</pre>
+                        <pre><code data-trim data-noescape class="language-yml">
+name: Build and test
+
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+        matrix:
+        node: ['lts/*', 'latest']
+        
+    steps:
+        - name: Checkout repository
+          uses: actions/checkout@v6
+            
+        - name: Set up Node.js ${{ matrix.node }}
+          uses: actions/setup-node@v6
+          with:
+            node-version: ${{ matrix.node }}
+        
+        - name: Install dependencies
+          run: npm ci
+        
+        - name: Build the project
+          run: npm run build
+        
+        - name: Run the tests
+          run: npm test -- --coverage
+                        </code></pre>
+                    </section>
+                    <section>
+                    <aside class="notes">
+<b>EXPLAIN UI</b><br />
+Need to test your app looks the same before it goes live?<br />
+Want to stop coworkers from breaking the build?<br />
+Want to deploy automatically when code is merged?<br />
+Wanna check for vulnerabilities every hour and generate a report?<br />
+<b>Wanna check for updates?</b><br />
+<b>**CLICK**</b>
+</aside>
+</aside>
+                        <img src="assets/actions_detail.png">
+                    </section>
+                    <section>
+                        <h1>No more<br />"I don't have<br/>time for that."</h1>
+                    </section>
+                </section>
+                <section>
+                    <h2>about: Renovate</h2>
+                    <section>
+                    <aside class="notes">
+Well, that's where Renovate comes in...<br />
+<b>**CLICK**</b><br />
+We can create a simple file...<br />
+<b>Read the file</b><br />
+<b>**CLICK**</b><br />
+Run this command<br />
+<b>**CLICK**</b>
+</aside>
+                        <div class="fragment">
+                        A file named <pre style="display: inline;">/renovate.json</pre>
+                        <pre><code data-trim data-noescape>
+  {
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+      "config:recommended"
+    ]
+  }
+                        </code></pre>
+                    </div>
+                    <div class="fragment">
+                        followed by
+
+
+<pre><code data-trim data-noescape>
+$ npx renovate
+</code></pre>
+results in...
+</div>
+                    </section>
+                    <section>
+                        Pull Requests! <br />
+                        <img src="assets/renovate.png">
+                    <aside class="notes">
+Example from sunders
+If I click on one of these it looks like this:
+<b>**CLICK**</b>
+</aside>
+                    </section>
+                    <section>
+                        <br /><img src="assets/renovate_details.png" style="height: 75vh">
+                    <aside class="notes">
+Makes all changes for you and presents you with a one-click integration for them.
+Supports literally... everything.
+<b>**CLICK**</b>
+</aside>
+                    </section>
+                    <section>
+                        <br />
+                        Supports just a few providers... <br />
+                        
+                        <p style="font-size: 0.7em">artifactory, aws-eks-addon, aws-machine-image, aws-rds, azure-bicep-resource, azure-pipelines-tasks, azure-tags, bazel, bitbucket-server-tags, bitbucket-tags, bitrise, buildpacks-registry, cdnjs, clojure, conan, conda, cpan, crate, custom, dart, dart-version, deb, deno, devbox, docker, dotnet-version, endoflife-date, flutter-version, forgejo-releases, forgejo-tags, galaxy, galaxy-collection, git-refs, git-tags, gitea-releases, gitea-tags, github-release-attachments, github-releases, github-runners, github-tags, gitlab-packages, gitlab-releases, gitlab-tags, glasskube-packages, go, golang-version, gradle-version, hackage, helm, hermit, hex, hexpm-bob, java-version, jenkins-plugins, jsr, kubernetes-api, maven, nextcloud, node-version, npm, nuget, orb, packagist, pod, puppet-forge, pypi, python-version, repology, rpm, ruby-version, rubygems, sbt-package, sbt-plugin, terraform-module, terraform-provider, typst, unity3d, unity3d-packages</p>
+                        <img class="fragment" style="position: absolute;bottom: -1.7em;left: 8.8em;height: 2em;transform: rotateZ(-17deg);" src="assets/thatsme.png">
+                    <aside class="notes">
+I'm sure your package manager is on there, if not do it like me and
+<b>**CLICK**</b>
+add it...
+
+We now have automated tests we can make blocking and automated updates. If we're feeling confident we could...
+<b>**CLICK**</b>
+</aside>
+                    </section>
+                    <section>
+                        <p>If you're feeling bold...</p>
+                        <img src="assets/renovate-autoupdate.png" style="height: 65vh" />
+                    <aside class="notes">
+Combine the two. This is an app I'm actively working on for a charity.
+<b>**CLICK**</b>
+</aside>
+                    </section>
+                    <section>
+                    <aside class="notes">
+Pro-active inventory of out-of-date things, if we put in the extra mile auto-updates that can't break things
+<b>**CLICK**</b>
+</aside>
+                        <h1>No more<br />"What do I need<br/>to update where?"</h1>
+                    </section>
+                </section>
+                <section>
+                    <h2>about: Terraform</h2>
+                    <section>
+                    <aside class="notes">
+Next up: Terraform; for terraform a quick definition:
+<b>**CLICK**</b></aside></section>
+                    <section>
+                        <p><b>Declarative</b> programming, rather than <b>imperative</b></p>
+                        <p>Describe what you <b>want to have</b>, not <b>how you get</b> there</p>
+                        <aside class="notes">
+<b>READ SLIDE</b>
+what does that mean exactly?
+<b>**CLICK**</b>
+                    </aside>
+                    </section>
+                    <section>
+                    <aside class="notes">
+Compare active language vs. declarative configuration<br />
+Highlight each verb in imperative<br />
+highlight first two keys in second example<br />
+<b>**CLICK**</b>
+                    </aside>
+                        <div style="display: flex; justify-content: space-around; align-items: flex-start;">
+                            <div style="width: 75%;"><b>Imperative</b>
+                            <pre><code data-trim data-noescape>
+FROM node:25-alpine
+
+WORKDIR /app
+COPY ./ /app
+
+RUN npm ci
+
+CMD ["npm", "run", "start"]
+                            </code></pre></div>
+                            <div style="width: 100%;"><b>Declarative</b>
+                            <pre><code data-trim data-noescape class="language-yml">
+services:
+  db:
+    image: postgres:17.7-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=${TTRSS_DB_USER}
+      - POSTGRES_PASSWORD=${TTRSS_DB_PASS}
+    volumes:
+      - db:/var/lib/postgresql/data
+                            </code></pre></div>
+                    </section>
+                    <section>
+                    <aside class="notes">
+Let's say I want a subdomain imperatively...<br />
+OPEN API EXAMPLE
+<b>**CLICK**</b>
+                    </aside>
+                        Let's say I want a subdomain imperatively...<br />
+                        Oh hey, my provider has <a href="https://kas.all-inkl.com/schnittstelle/dokumentation/phpdoc/packages/API%20Funktionen.html">an API for that!</a>
+                    </section>
+                    <section>
+                    <aside class="notes">
+PHP Pseudo-Code example:<br />
+FOR EVERY PROJECT?! Tedious!<br />
+What if my password changes<br />
+What if my IP changes<br />
+How do I deploy that helper script?<br />
+Wouldn't it be great if I could just... <b>**CLICK**</b> have a definition file like so...
+                    </aside>
+                            <pre style="height: 75vh"><code data-trim data-noescape>
+                                $api = new KASApi($username, $password);
+                                $subdomains = $api->getSubdomains();
+                                $domainId = null;
+                                foreach ($subdomains as $subdomain) {
+                                    if ($subdomain->name === 'presentation') {
+                                        $domainId = $subdomain->id;
+                                        break;
+                                    }
+                                }
+                                if ($domainId === null) {
+                                    $api->createSubdomain('presentation', 'A', '88.99.215.101');
+                                    exit 0;
+                                }
+
+                                if ($subdomain->type === 'A' && $subdomain->target === '88.99.215.101') {
+                                    exit 0;
+                                }
+
+                                $api->upsertSubdomain($domainId, 'presentation', 'A', '88.99.215.101');
+                            </code></pre>
+                    </section>
+                    <section>
+                    <aside class="notes">
+...have a definition file like so and just plan my changes from there?<br />
+<b>**CLICK**</b> I can.<br />
+It does what we want: <b>**CLICK**</b><br />
+                    </aside>
+                            <pre><code data-trim data-noescape>
+      resource "allinkl_dns" "subdomain" {
+        zone_host   = "mahn.ke"
+        record_type = "A"
+        record_name = "presentation"
+        record_data = "88.99.215.101"
+      }
+                            </code></pre>
+                            <pre class="fragment"><code data-trim data-noescape>
+      $ terraform plan
+                            </code></pre>
+                    </section>
+                    <section>
+                    <aside class="notes">
+Run through log<br />
+This seems super high-level and too good to be true, but<br />
+<b>**CLICK**</b>
+                    </aside>
+                            <pre><code data-trim data-noescape>
+      $ terraform plan
+                            </code></pre>
+                            <pre style="height: 20em"><code data-trim data-noescape class="language-bash">
+allinkl_dns.subdomain: Refreshing state...
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # allinkl_dns.subdomain will be updated in-place
+  ~ resource "allinkl_dns" "subdomain" {
+      ~ last_updated = "Friday, 05-Dec-25 04:02:04 UTC" -> (known after apply)
+      ~ record_data  = "1.2.3.4" -> "88.99.215.101"
+        # (5 unchanged attributes hidden)
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+                            </code></pre>
+                    </section>
+                    <section>
+                    <aside class="notes">
+we can look at it in action<br />
+<b>**OPEN LINK**</b><br />
+  IGNORE ALL FILES, JUST GO INTO INFRASTRUCTURE<br />
+  CHANGE IP<br />
+  GO TO ACTIONS<br />
+  SEE PLAN RUN<br />
+  SEE APPLY RUN<br />
+  <b>**CLICK**</b>
+                    </aside>
+                            This seems too good to be true, so...<br />
+                            <br />
+                            <i style="font-style: italic;">I just happen to have <a href="https://github.com/mahn-ke/ttrss-by-vincent/blob/main/infrastructure/subdomain.tf">an example</a>!</i>
+                    </section>
+                    <section>
+                    <aside class="notes">
+single-source of truth and actively applied record<br />
+fidgeting is allowed, but a recurring job or push kills it<br />
+  <b>**CLICK**</b>
+                    </aside>
+                        <h1>No more<br />"Why do I need<br/>this again?"</h1>
+                    </section>
+                </section>
+                <section>
+                    <h2>In summary: No more...</h2>
+                    <ul>
+                            <li><b style="display: inline-block; width: 350px">Docker:</b>"How do I start this again?"</li>
+                            <li><b style="display: inline-block; width: 350px">GitHub Actions:</b>"I don't have time for that."</li>
+                            <li><b style="display: inline-block; width: 350px">Renovate:</b>"What do I need to update where?"</li>
+                            <li><b style="display: inline-block; width: 350px">Terraform:</b>"Why do I need this again?"</li>
+                    </ul>
+                    <aside class="notes">
+In summary...<br />
+<b>READ SLIDES</b>
+This would be great time for a break, the next stuff would be more off-the-cuff:
+<b>**CLICK**</b>
+                    </aside>
+                </section>
+                <section>
+                    <aside class="notes">
+<h2>IMMICH REPO:</h2>
+  [[DON'T BROWSE INTO THESE: Not a whole lot in there; we have:<br />
+  - the repo itself<br />
+  - the GitHub actions<br />
+  - renovate file<br />
+  - github workflows for actions<br />
+  ]]<br />
+  [[BROWSE INTO:<br />
+  service: empty for now<br />
+  infrastructure: subdomain<br />
+  ]]<br />
+  [[BROWSE INTO:<br />
+  renovate<br />
+  ]]<br />
+  [[BROWSE INTO:<br />
+  .github<br />
+  - What does this give me:<br />
+  - Ideally after 1 line of code and dumping the existing code...<br />
+  - automatic version updates for non-breaking changes<br />
+    - emails if they fail<br />
+  - automated backups<br />
+    - 7 latest daily<br />
+    - 4 latest weekly<br />
+    - 12 latest monthly<br />
+    - 1 per year<br />
+  - one-click restores<br />
+    - 1 click<br />
+    - 1 point in time<br />
+    - 1 confirmation<br />
+    - 1 backup of the "broken" state for investigation<br />
+    - 1 process for deploying after a change or a restore<br />
+  ]]<br />
+  [[UPLOAD AN IMAGE]]<br />
+  [[KICK OFF A RESTORE]]<br />
+  [[SWITCH TO DEPLOYING THE PRESENTATION]]<br />
+<h2>Deploying the presentation:</h2><br />
+  1. show repo: https://github.com/mahn-ke/repos/tree/8838dbd39cf994f98cf2b72ff33cc8a4d0655f2c <br />
+  2. go to infra<br />
+  3. add "slides" service<br />
+  4. switch to prepared plan:<br />
+    1. show that repo gets created https://github.com/mahn-ke/repos/actions/runs/20119341776/job/57735951862#step:8:584<br />
+    2. show that rules that prevents me from auto-merging is created: https://github.com/mahn-ke/repos/actions/runs/20119341776/job/57735951862#step:8:625<br />
+    3. show that terraform in the repo gets created: https://github.com/mahn-ke/repos/actions/runs/20119341776/job/57735951862#step:8:1473<br />
+    <b>**CLICK**</b>
+                    </aside>
+                    <h2>Ich hab’ da mal was vorbereitet</h2>
+                    <ul>
+                        <li><a href="https://github.com/mahn-ke/photos-by-vincent/">A look at Immich</a></li>
+                        <li><a href="https://github.com/mahn-ke/repos/tree/8838dbd39cf994f98cf2b72ff33cc8a4d0655f2c">Deploying this presentation</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>A few words on Nix</h2>
+                    <section>
+                        <aside class="notes">
+<b>READ FILE</b><br />
+<b>**CLICK**</b>
+                        </aside>
+                        <p>Remember Terraform? Imagine this for every tool you need.</p>
+                        <pre><div
+        style="color: #cccccc;background-color: #1f1f1f;font-family: 'Fira Mono Bold', Consolas, 'Courier New', monospace, Menlo, Monaco, 'Courier New', monospace;"><span style="color: #cccccc;">{ </span><span style="color: #9cdcfe;">pkgs</span><span
+            style="color: #cccccc;"> </span><span style="color: #d4d4d4;">?</span><span
+            style="color: #cccccc;"> </span><span style="color: #dcdcaa;">import</span><span
+            style="color: #cccccc;"> </span><span style="color: hsl(17, 47%, 64%);">&lt;nixpkgs&gt;</span><span
+            style="color: #cccccc;"> {} }:</span><br /><br /><span style="color: #9cdcfe;">pkgs</span><span
+            style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">mkShell</span><span
+            style="color: #cccccc;"> {</span><br /><span style="color: #cccccc;">  </span><span
+            style="color: #9cdcfe;">buildInputs</span><span style="color: #cccccc;"> </span><span
+            style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> [</span><br /><span
+            style="color: #cccccc;">    </span><span style="color: #9cdcfe;">vscode-with-extensions</span><span
+            style="color: #cccccc;"> </span><span style="color: #f44747;">=</span><span
+            style="color: #cccccc;"> </span><span style="color: #9cdcfe;">pkgs</span><span
+            style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">vscode-with-extensions</span><span
+            style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">override</span><span
+            style="color: #cccccc;"> {</span><br /><span style="color: #cccccc;">          </span><span style="color: #9cdcfe;">vscodeExtensions</span><span
+            style="color: #cccccc;"> </span><span style="color: #d4d4d4;">=</span><span
+            style="color: #cccccc;"> </span><span style="color: #569cd6;">with</span><span
+            style="color: #cccccc;"> </span><span style="color: #9cdcfe;">pkgs</span><span
+            style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">vscode-extensions</span><span
+            style="color: #cccccc;">; [</span><br /><span style="color: #cccccc;">              </span><span style="color: #9cdcfe;">ms-vscode</span><span style="color: #d4d4d4;">.</span><span
+            </span><span style="color: #9cdcfe;">ms-vscode</span><span style="color: #d4d4d4;">.</span><span
+            style="color: #9cdcfe;">vscode-typescript-next</span><br /><span style="color: #cccccc;">              </span><span style="color: #9cdcfe;">esbenp</span><span style="color: #d4d4d4;">.</span><span
+            style="color: #9cdcfe;">prettier-vscode</span><br /><span style="color: #cccccc;">          ];</span><br /><span style="color: #cccccc;">    }</span><br /><span style="color: #cccccc;">    </span><span
+            style="color: #9cdcfe;">pkgs</span><span style="color: #d4d4d4;">.</span><span
+            style="color: #9cdcfe;">nodejs_22</span><br /><span style="color: #cccccc;">  ];</span><br /><span
+            style="color: #cccccc;">}</span></div></pre>
+    <pre><code data-trim data-noescape class="language-crystal">
+    $ nix-shell
+    </code></pre>
+                    </section>
+                    <section>
+                        <h2>Imagine if you could build entire bootable systems with that...</h2>
+    <pre class="fragment"><code data-trim data-noescape class="language-crystal">
+    $ nixos-generate --format iso --configuration ./myimage.nix -o result
+    </code></pre>
+                    <p class="fragment">👀</p>
+                    </section>
+                </section>
+                <section>
+                    <h2>OSS Web Alternatives</h2>
+                    <section>
+                        <main style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1em; font-size: 0.8em;">
+                            <a href="assets/immich.png">Google Photos -><br />immich</a>
+                            <a href="assets/nextcloud.png">Google Drive -><br />Nextcloud</a>
+                            <a href="assets/mails.png">GMail -><br />all-inkl</a>
+                            <a href="assets/wger.png">FitX -><br />wger</a>
+                            <a href="assets/rustdesk.png">TeamViewer -><br />RustDesk</a>
+                            <a href="assets/ttrss.png">Twitter -><br />Tiny Tiny RSS</a>
+                            <a href="assets/uptimekuma.png">Statuspage (Atlassian) -><br />UptimeKuma</a>
+                            <a href="assets/portainer.png">Heroku / AWS -><br />Portainer</a>
+                            <a href="assets/glitchtip.png">Sentry -><br />glitchtip</a>
+                            <a href="assets/seq.png">Elasticsearch/Kibana -><br />Seq</a>
+                            <a href="assets/gotifier.png">Firebase -><br />gotifier</a>
+                            <a href="assets/keycloak.png">Single Sign-On -><br />Keycloak</a>
+                        </main>
+                    </section>
+                </section>
+                <section data-background="hsl(26deg 76% 7%)">
+                    <aside class="notes">
+- Build awesome things, support others<br />
+- Pull Requests are welcome<br />
+- Donations are welcome<br />
+- Tech support is welcome<br />
+                    </aside>
+                    <div style="display: flex; align-items: center;">
+                        <img src="assets/500px_bg.gif" style="height: 35vh;border-radius: 1000px;border-top: 1px solid #e27a2d;" />
+                        <div style="background: #FF7F00;height: 250px;width: 1px;margin: 1em;"></div>
+                        <div style="text-align: left; line-height: 1em;">
+                            <h1 style="margin-bottom: 0.1em;">The future is you</h1>
+                            <p style="margin: 0;"><a href="mailto:vincent@mahn.ke">vincent@mahn.ke</a><br />
+                            thank you.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <script src="dist/reveal.js"></script>
+        <script src="plugin/notes/notes.js"></script>
+        <script src="plugin/markdown/markdown.js"></script>
+        <script src="plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+                width: 1280,
+                height: 720,
+
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+            });
+        </script>
+    </body>
+</html>
