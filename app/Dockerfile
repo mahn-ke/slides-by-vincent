@@ -7,14 +7,15 @@ COPY . .
 RUN npm run build
 
 # ---------- Production ----------
-FROM node:25-alpine
+FROM alpine:3.19
+
+RUN apk add --no-cache busybox-extras
+
 WORKDIR /app
-ENV NODE_ENV=production
-
-COPY package*.json ./
-RUN npm ci --omit=dev && npm cache clean --force
-
+COPY --from=builder /app/index.html .
 COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/assets ./assets
+COPY --from=builder /app/plugin ./plugin
 
-USER node
-CMD ["node", "dist/index.js"]
+EXPOSE 3000
+CMD ["httpd", "-f", "-p", "3000", "-h", "/app"]
