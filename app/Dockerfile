@@ -9,7 +9,7 @@ RUN npm run build
 # ---------- Production ----------
 FROM alpine:3.19
 
-RUN apk add --no-cache busybox-extras
+RUN apk add --no-cache busybox-extras curl
 
 WORKDIR /app
 COPY --from=builder /app/index.html .
