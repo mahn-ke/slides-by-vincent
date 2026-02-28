@@ -1,11 +1,20 @@
-FROM node:25-alpine
-
-# Add curl
-RUN apk add --no-cache curl
-
+# ---------- Builder ----------
+FROM node:25-alpine AS builder
 WORKDIR /app
-COPY ./ /app
-
+COPY package*.json ./
 RUN npm ci
+COPY . .
+RUN npm run build
 
-CMD ["npm", "run", "start"]
+# ---------- Production ----------
+FROM node:25-alpine
+WORKDIR /app
+ENV NODE_ENV=production
+
+COPY package*.json ./
+RUN npm ci --omit=dev && npm cache clean --force
+
+COPY --from=builder /app/dist ./dist
+
+USER node
+CMD ["node", "dist/index.js"]

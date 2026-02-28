@@ -1,0 +1,11 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "npm run start": true,
+        "nvm": true,
+        "npm install": true,
+        "/^node --version && head -5 gulpfile\\.js && echo \"---\" && head -5 gulpfile\\.mjs$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

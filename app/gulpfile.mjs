@@ -1,28 +1,33 @@
-const fs = require('fs');
-const pkg = require('./package.json')
-const glob = require('glob')
-const yargs = require('yargs')
-const through = require('through2');
-const qunit = require('node-qunit-puppeteer')
+import fs from 'fs';
+import { createRequire } from 'module';
+import { globSync } from 'glob';
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import through from 'through2';
+import qunit from 'node-qunit-puppeteer';
 
-const {rollup} = require('rollup')
-const terser = require('@rollup/plugin-terser')
-const babel = require('@rollup/plugin-babel').default
-const commonjs = require('@rollup/plugin-commonjs')
-const resolve = require('@rollup/plugin-node-resolve').default
-const sass = require('sass')
+import { rollup } from 'rollup';
+import terser from '@rollup/plugin-terser';
+import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import * as sass from 'sass';
 
-const gulp = require('gulp')
-const zip = require('gulp-zip')
-const header = require('gulp-header-comment')
-const eslint = require('gulp-eslint')
-const minify = require('gulp-clean-css')
-const connect = require('gulp-connect')
-const autoprefixer = require('gulp-autoprefixer')
+import gulp from 'gulp';
+import zip from 'gulp-zip';
+import header from 'gulp-header-comment';
+import eslint from 'gulp-eslint';
+import minify from 'gulp-clean-css';
+import connect from 'gulp-connect';
+import autoprefixer from 'gulp-autoprefixer';
 
-const root = yargs.argv.root || '.'
-const port = yargs.argv.port || 8000
-const host = yargs.argv.host || 'localhost'
+const require = createRequire(import.meta.url);
+const pkg = require('./package.json');
+
+const argv = yargs(hideBin(process.argv)).parseSync();
+const root = argv.root || '.';
+const port = argv.port || 8000;
+const host = argv.host || 'localhost';
 
 const cssLicense = `
 reveal.js ${pkg.version}
@@ -222,7 +227,7 @@ gulp.task('qunit', () => {
         }
     } )
 
-    let testFiles = glob.sync('test/*.html' )
+    let testFiles = globSync('test/*.html' )
 
     let totalTests = 0;
     let failingTests = 0;
@@ -278,7 +283,7 @@ gulp.task('qunit', () => {
     } );
 } )
 
-gulp.task('eslint', () => gulp.src(['./js/**', 'gulpfile.js'])
+gulp.task('eslint', () => gulp.src(['./js/**', 'gulpfile.mjs'])
         .pipe(eslint())
         .pipe(eslint.format()))
 
