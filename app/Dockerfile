@@ -7,7 +7,7 @@ COPY . .
 RUN npm run build
 
 # ---------- Production ----------
-FROM alpine:3.23
+FROM alpine:3.24
 
 RUN apk add --no-cache busybox-extras curl
 
