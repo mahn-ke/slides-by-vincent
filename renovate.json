@@ -1,12 +1,1 @@
-{
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>mahn-ke/.github//renovate/default"],
-  "packageRules": [
-    {
-      "description": "Keep Babel compatible with @rollup/plugin-babel's Babel 7 peer requirement",
-      "matchManagers": ["npm"],
-      "matchPackageNames": ["@babel/core", "@babel/eslint-parser", "@babel/preset-env"],
-      "allowedVersions": "<8.0.0"
-    }
-  ]
-}
+{"$schema":"https://docs.renovatebot.com/renovate-schema.json","extends":["github\u003emahn-ke/.github//renovate/default"],"packageRules":[{"allowedVersions":"\u003c8.0.0","description":"Keep Babel compatible with @rollup/plugin-babel's Babel 7 peer requirement","matchManagers":["npm"],"matchPackageNames":["@babel/core","@babel/eslint-parser","@babel/preset-env"]}]}
