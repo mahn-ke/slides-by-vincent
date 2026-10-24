@@ -1,7 +1,7 @@
 #http
 services:
   app:
-    image: ghcr.io/mahn-ke/slides-by-vincent:latest@sha256:dcae93a9edd68acb9b97a78fdcafe9d12014379452255bd9f66bf54f146d4bca
+    image: ghcr.io/mahn-ke/slides-by-vincent:latest@sha256:f97dd4db34b71d379e44b6d6638fbc27c429494f0f86efef29dba5a9085ac8eb
     restart: on-failure:5
     environment:
       - PORT=3000
